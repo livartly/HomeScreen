@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Case
+    uniqueID: 358408617
+    locked: 0
+  - name: Screens
+    uniqueID: 3441098241
+    locked: 0
+  - name: Buttons
+    uniqueID: 434360929
+    locked: 0
