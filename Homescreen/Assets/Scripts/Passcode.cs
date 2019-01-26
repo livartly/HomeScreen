@@ -10,22 +10,24 @@ public class Passcode : MonoBehaviour {
 
     private TextMeshProUGUI go;
     private const int PASSCODE_LENGTH = 4;
+    private int validPasscode;
 
     // Use this for initialization
     void Start () {
         passcode = "";
         go = display.GetComponent<TextMeshProUGUI>();
+
+        //Generate a random passcode
+        validPasscode =  (int) Random.Range(0, 9999);
     }
 	
 	// Update is called once per frame
 	void Update () {
-
         if (passcode.Length >= PASSCODE_LENGTH)
         {
             //Check passcode
             CheckPasscode();
         }
-
         //Update display to show passcode
         go.text = passcode;
 	}

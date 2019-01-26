@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ButtonClicks : MonoBehaviour {
 
+    public GameObject lockScreen;
+    public GameObject homeScreen;
+
+
     //Adds 0 to the passcode
     public void OnButtonClick_0 ()
     {
@@ -65,4 +69,21 @@ public class ButtonClicks : MonoBehaviour {
         GetComponent<Passcode>().passcode += "9";
     }
 
+    //Opens the LockScreen
+    public void OnButtonClick_OpenLockScreen()
+    {
+        //Enable Lockscreen
+        lockScreen.SetActive(true);
+        //Disable Homescreen
+        homeScreen.SetActive(false);
+    }
+
+    //Opens the LockScreen
+    public void OnButtonClick_OpenHomeScreen()
+    {
+        //Enable Lockscreen
+        homeScreen.SetActive(true);
+        //Disable Homescreen
+        lockScreen.SetActive(false);
+    }
 }
