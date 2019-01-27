@@ -61,7 +61,6 @@ public class Passcode : MonoBehaviour {
                 YouLose();
             }
 
-
             //Debug.Log((int)timeLeft);
             int timeLeftInt = (int)timeLeft;
             int seconds = timeLeftInt % 60;
