@@ -142,12 +142,12 @@ public class Passcode : MonoBehaviour {
             if (Random.Range(0, 9) < 7)
             {
                 GameObject go = Instantiate(Notification, nextPos, Quaternion.identity, content.transform);
-                go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
+                go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHeres ur hint: " + hint;
             }
             else
             {
                 GameObject go = Instantiate(NotificationFromInstagram, nextPos, Quaternion.identity, content.transform);
-                go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
+                go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHeres ur hint: " + hint;
             }
             Debug.Log(validPasscode);
 
