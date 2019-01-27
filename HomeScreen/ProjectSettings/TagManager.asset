@@ -41,6 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Back
+    uniqueID: 1139576779
+    locked: 0
+  - name: Gradient
+    uniqueID: 1141871277
+    locked: 0
   - name: Case
     uniqueID: 358408617
     locked: 0
