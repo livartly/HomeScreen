@@ -25,6 +25,8 @@ public class Passcode : MonoBehaviour {
     public GameObject NotificationFromInstagram;
 
     public AudioSource vibrateSource;
+    public AudioSource winSource;
+    public AudioSource loseSource;
 
     private int Attempts = 0;
 
@@ -178,11 +180,14 @@ public class Passcode : MonoBehaviour {
         isUnlocked = true;
 
         buttonClicks.OnButtonClick_OpenHomeScreen();
+        Attempts++;
         Vector3 offset = new Vector3(50f, -notificationHeight * Attempts, 0f);
         Vector3 nextPos = offset + content.transform.position;
         GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
         go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3\nYou Win!";
         Debug.Log("You win");
+
+        winSource.Play();
 
         StretchBox(offset);
     }
@@ -190,7 +195,8 @@ public class Passcode : MonoBehaviour {
     void YouLose()
     {
         buttonClicks.OnButtonClick_OpenHomeScreen();
-        Vector3 offset2 = new Vector3(50f, -notificationHeight * (Attempts + 1), 0f);
+        Attempts++;
+        Vector3 offset2 = new Vector3(50f, -notificationHeight * Attempts, 0f);
         Vector3 nextPos2 = offset2 + content.transform.position;
         GameObject go2 = Instantiate(NotificationFromMOM, nextPos2, Quaternion.identity, content.transform);
         go2.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Chad: YEET or get yeeted. Better luck next time. You Lose!";
@@ -198,6 +204,8 @@ public class Passcode : MonoBehaviour {
         StretchBox(offset2);
 
         Debug.Log("You lose");
+
+        loseSource.Play();
     }
 
     //stretch out notification content to scroll properly
