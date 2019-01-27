@@ -6,12 +6,9 @@ Check out these # new photos
 PhotoChat
 *Name* sent you # shots
 *Name* sent you # chat messages
-
+See # new articles from ChatNuze
 
 EzText
 # new pictures from *Name*
 # texts from *Name*
 # new messages in multiple chats
-
-Generic
-*Name*: Did you see Arachni-Boy comes out in # days?
