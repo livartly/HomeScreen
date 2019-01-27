@@ -45,18 +45,20 @@ public class Passcode : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-
+        //While playing
         if (timeLeft > 0f)
         {
+            //Depricate time
             if (isUnlocked == false)
             {
                 timeLeft -= Time.deltaTime;
             }
 
+            //Set time to zero
             if (timeLeft < 0)
             {
                 timeLeft = 0;
-
+                YouLose();
             }
 
 
@@ -110,26 +112,18 @@ public class Passcode : MonoBehaviour {
                     //If valid passcode contains first number
                     if (passcode[i] == validPasscode[i])
                     {
-
-
-                        /// right position
+                        // right position
                         hint += " XD ";
                     }
                     else
                     {
-
-
-                        /// right number wrong position
-
+                        // right number wrong position
                         hint += " ;) ";
                     }
                 }
                 else
                 {
-
-
-                    /// wrong number wrong position
-                    /// 
+                    // wrong number wrong position
                     hint += " :( ";
                 }
             }
@@ -178,5 +172,16 @@ public class Passcode : MonoBehaviour {
         GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
         go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3";
         Debug.Log("You win");
+    }
+
+    void YouLose()
+    {
+        GetComponent<ButtonClicks>().OnButtonClick_OpenHomeScreen();
+        Vector3 offset2 = new Vector3(50f, -70f * Attempts, 0f);
+        Vector3 nextPos2 = offset2 + content.transform.position;
+        GameObject go2 = Instantiate(NotificationFromMOM, nextPos2, Quaternion.identity, content.transform);
+        go2.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Chad: YEET or get yeeted. Better luck next time.";
+
+        Debug.Log("You lose");
     }
 }
