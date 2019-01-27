@@ -7,9 +7,10 @@ public class Passcode : MonoBehaviour {
 
     public string passcode;
     public GameObject display;
+    public float notificationHeight = 60f;
 
     private TextMeshProUGUI codeDisplay;
-    private const int PASSCODE_LENGTH = 4;
+    public const int PASSCODE_LENGTH = 4;
     private string validPasscode;
     private float timeLeft = 70;
     public GameObject timeDisplay;
@@ -22,12 +23,16 @@ public class Passcode : MonoBehaviour {
     public GameObject NotificationFromMOM;
     public GameObject NotificationFromInstagram;
 
+    public AudioSource vibrateSource;
+
     private int Attempts = 0;
 
 
 
     private bool isChecking;
     private bool isUnlocked;
+
+    private ButtonClicks buttonClicks;
 
     // Use this for initialization
     void Start () {
@@ -40,6 +45,8 @@ public class Passcode : MonoBehaviour {
 
         //Generate a random passcode
         validPasscode =  Random.Range(0, 9999).ToString();
+
+        buttonClicks = GetComponent<ButtonClicks>();
     }
 	
 	// Update is called once per frame
@@ -127,7 +134,7 @@ public class Passcode : MonoBehaviour {
                 }
             }
             //Instantiate Notification
-            Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
+            Vector3 offset = new Vector3(50f, -notificationHeight * Attempts, 0f);
             Vector3 nextPos = offset + content.transform.position;
             if (Random.Range(0, 9) < 7)
             {
@@ -152,6 +159,8 @@ public class Passcode : MonoBehaviour {
         yield return new WaitForSeconds(.5f);
         ClearPasscode();
         isChecking = false;
+        vibrateSource.Play();
+        buttonClicks.OnButtonClick_OpenHomeScreen();
     }
 
     //Reset the passcode
@@ -165,7 +174,7 @@ public class Passcode : MonoBehaviour {
         //Stop timer
         isUnlocked = true;
 
-        GetComponent<ButtonClicks>().OnButtonClick_OpenHomeScreen();
+        buttonClicks.OnButtonClick_OpenHomeScreen();
         Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
         Vector3 nextPos = offset + content.transform.position;
         GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
@@ -175,7 +184,7 @@ public class Passcode : MonoBehaviour {
 
     void YouLose()
     {
-        GetComponent<ButtonClicks>().OnButtonClick_OpenHomeScreen();
+        buttonClicks.OnButtonClick_OpenHomeScreen();
         Vector3 offset2 = new Vector3(50f, -70f * Attempts, 0f);
         Vector3 nextPos2 = offset2 + content.transform.position;
         GameObject go2 = Instantiate(NotificationFromMOM, nextPos2, Quaternion.identity, content.transform);

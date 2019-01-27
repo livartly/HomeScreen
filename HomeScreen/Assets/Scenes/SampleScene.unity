@@ -628,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passcode: asd
   display: {fileID: 144801281}
+  notificationHeight: 70
   timeDisplay: {fileID: 1132509013}
   smallTimeDisplay: {fileID: 1708095282}
   content: {fileID: 948968409}
@@ -637,6 +638,7 @@ MonoBehaviour:
     type: 2}
   NotificationFromInstagram: {fileID: 1768861182698690, guid: 2342e93e7d389684f826a1b6764e2a0c,
     type: 2}
+  vibrateSource: {fileID: 1239105578}
 --- !u!4 &139209662
 Transform:
   m_ObjectHideFlags: 0
@@ -1492,7 +1494,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 773147498}
   m_Direction: 2
   m_Value: 0.99
-  m_Size: 0.66666675
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2325,7 +2327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000018071625, y: 1}
+  m_AnchoredPosition: {x: 0.00002263443, y: 1}
   m_SizeDelta: {x: -1, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1109810047
