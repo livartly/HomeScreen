@@ -629,6 +629,7 @@ MonoBehaviour:
   passcode: asd
   display: {fileID: 144801281}
   notificationHeight: 70
+  notificationBox: {fileID: 948968410}
   timeDisplay: {fileID: 1132509013}
   smallTimeDisplay: {fileID: 1708095282}
   content: {fileID: 948968409}
@@ -1493,8 +1494,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 773147499}
   m_HandleRect: {fileID: 773147498}
   m_Direction: 2
-  m_Value: 0.99
-  m_Size: 0.6666667
+  m_Value: 0
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2224,8 +2225,8 @@ RectTransform:
   m_Father: {fileID: 796517891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.33}
-  m_AnchorMax: {x: 1, y: 0.9966668}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.9999998}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2327,8 +2328,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00002263443, y: 1}
-  m_SizeDelta: {x: -1, y: 300}
+  m_AnchoredPosition: {x: 0.00002263443, y: -0.0000011891423}
+  m_SizeDelta: {x: -1, y: 22.29}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1109810047
 GameObject:
@@ -3848,7 +3849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 948968410}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
   m_MovementType: 1
   m_Elasticity: 0.1

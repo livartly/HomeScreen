@@ -8,6 +8,7 @@ public class Passcode : MonoBehaviour {
     public string passcode;
     public GameObject display;
     public float notificationHeight = 60f;
+    public RectTransform notificationBox;
 
     private TextMeshProUGUI codeDisplay;
     public const int PASSCODE_LENGTH = 4;
@@ -44,7 +45,7 @@ public class Passcode : MonoBehaviour {
         isChecking = false;
 
         //Generate a random passcode
-        validPasscode =  Random.Range(0, 9999).ToString();
+        validPasscode =  Random.Range(0, 9).ToString() + Random.Range(0, 9).ToString() + Random.Range(0, 9).ToString() + Random.Range(0, 9).ToString();
 
         buttonClicks = GetComponent<ButtonClicks>();
     }
@@ -147,6 +148,11 @@ public class Passcode : MonoBehaviour {
                 go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
             }
             Debug.Log(validPasscode);
+
+            //stretch out notification content to scroll properly
+            float boxHeight = -offset.y - notificationHeight * 3 / 4;
+            if (notificationBox.sizeDelta.y < boxHeight)
+                notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
         }
 
         //Wait coroutine 
@@ -175,20 +181,31 @@ public class Passcode : MonoBehaviour {
         isUnlocked = true;
 
         buttonClicks.OnButtonClick_OpenHomeScreen();
-        Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
+        Vector3 offset = new Vector3(50f, -notificationHeight * Attempts, 0f);
         Vector3 nextPos = offset + content.transform.position;
         GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
         go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3";
         Debug.Log("You win");
+
+        //stretch out notification content to scroll properly
+        float boxHeight = -offset.y - notificationHeight * 3 / 4;
+        if (notificationBox.sizeDelta.y < boxHeight)
+            notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
     }
 
     void YouLose()
     {
         buttonClicks.OnButtonClick_OpenHomeScreen();
-        Vector3 offset2 = new Vector3(50f, -70f * Attempts, 0f);
+        Vector3 offset2 = new Vector3(50f, -70f * (Attempts + 1), 0f);
         Vector3 nextPos2 = offset2 + content.transform.position;
         GameObject go2 = Instantiate(NotificationFromMOM, nextPos2, Quaternion.identity, content.transform);
         go2.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Chad: YEET or get yeeted. Better luck next time.";
+
+        //stretch out notification content to scroll properly
+        float boxHeight = -offset2.y - notificationHeight * 3 / 4;
+        if (notificationBox.sizeDelta.y < boxHeight)
+            notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
+        Debug.Log("Notification box: " + notificationBox.sizeDelta.y + " Offset+nH: " + boxHeight);
 
         Debug.Log("You lose");
     }
