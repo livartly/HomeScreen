@@ -149,10 +149,7 @@ public class Passcode : MonoBehaviour {
             }
             Debug.Log(validPasscode);
 
-            //stretch out notification content to scroll properly
-            float boxHeight = -offset.y - notificationHeight * 3 / 4;
-            if (notificationBox.sizeDelta.y < boxHeight)
-                notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
+            StretchBox(offset);
         }
 
         //Wait coroutine 
@@ -184,29 +181,33 @@ public class Passcode : MonoBehaviour {
         Vector3 offset = new Vector3(50f, -notificationHeight * Attempts, 0f);
         Vector3 nextPos = offset + content.transform.position;
         GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
-        go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3";
+        go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3\nYou Win!";
         Debug.Log("You win");
 
-        //stretch out notification content to scroll properly
-        float boxHeight = -offset.y - notificationHeight * 3 / 4;
-        if (notificationBox.sizeDelta.y < boxHeight)
-            notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
+        StretchBox(offset);
     }
 
     void YouLose()
     {
         buttonClicks.OnButtonClick_OpenHomeScreen();
-        Vector3 offset2 = new Vector3(50f, -70f * (Attempts + 1), 0f);
+        Vector3 offset2 = new Vector3(50f, -notificationHeight * (Attempts + 1), 0f);
         Vector3 nextPos2 = offset2 + content.transform.position;
         GameObject go2 = Instantiate(NotificationFromMOM, nextPos2, Quaternion.identity, content.transform);
-        go2.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Chad: YEET or get yeeted. Better luck next time.";
+        go2.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Chad: YEET or get yeeted. Better luck next time. You Lose!";
 
-        //stretch out notification content to scroll properly
-        float boxHeight = -offset2.y - notificationHeight * 3 / 4;
-        if (notificationBox.sizeDelta.y < boxHeight)
-            notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
-        Debug.Log("Notification box: " + notificationBox.sizeDelta.y + " Offset+nH: " + boxHeight);
+        StretchBox(offset2);
 
         Debug.Log("You lose");
+    }
+
+    //stretch out notification content to scroll properly
+    private void StretchBox(Vector2 offset)
+    {
+        //stretch out notification content to scroll properly
+        float boxHeight = 55 * Attempts;
+        if (notificationBox.sizeDelta.y < boxHeight)
+            notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
+        notificationBox.anchoredPosition = new Vector2(notificationBox.anchoredPosition.x, Mathf.Max(0, notificationBox.sizeDelta.y - 200));
+        Debug.Log("Notification box: " + notificationBox.sizeDelta.y + " Offset+nH: " + boxHeight);
     }
 }
