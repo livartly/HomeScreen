@@ -71,7 +71,6 @@ public class Passcode : MonoBehaviour {
                 YouLose();
             }
 
-            //Debug.Log((int)timeLeft);
             int timeLeftInt = (int)timeLeft;
             int seconds = timeLeftInt % 60;
             int minutes = (int)Mathf.Floor(timeLeft / 60);
@@ -149,7 +148,6 @@ public class Passcode : MonoBehaviour {
                 GameObject go = Instantiate(NotificationFromInstagram, nextPos, Quaternion.identity, content.transform);
                 go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHeres ur hint: " + hint;
             }
-            Debug.Log(validPasscode);
 
             StretchBox(offset);
         }
@@ -185,7 +183,6 @@ public class Passcode : MonoBehaviour {
         Vector3 nextPos = offset + content.transform.position;
         GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
         go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3\nYou Win!";
-        Debug.Log("You win");
 
         winSource.Play();
 
@@ -203,8 +200,6 @@ public class Passcode : MonoBehaviour {
 
         StretchBox(offset2);
 
-        Debug.Log("You lose");
-
         loseSource.Play();
     }
 
@@ -216,6 +211,5 @@ public class Passcode : MonoBehaviour {
         if (notificationBox.sizeDelta.y < boxHeight)
             notificationBox.sizeDelta = new Vector2(notificationBox.sizeDelta.x, boxHeight);
         notificationBox.anchoredPosition = new Vector2(notificationBox.anchoredPosition.x, Mathf.Max(0, notificationBox.sizeDelta.y - 200));
-        Debug.Log("Notification box: " + notificationBox.sizeDelta.y + " Offset+nH: " + boxHeight);
     }
 }

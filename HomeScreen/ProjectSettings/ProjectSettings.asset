@@ -617,9 +617,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 62a45cdf-0648-4d0d-808b-26b14c3fbb1d
+  cloudProjectId: 9b75003d-4a5c-4be6-aa96-25eca8aae6f0
   projectName: Homescreen
-  organizationId: asdasdaaaaaa
+  organizationId: tjc0014
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

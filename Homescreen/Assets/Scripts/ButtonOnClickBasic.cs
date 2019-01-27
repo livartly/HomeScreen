@@ -23,7 +23,6 @@ public class ButtonOnClickBasic : MonoBehaviour {
 
     void Unlock()
     {
-        Debug.Log("Phone unlocked");
         unlockedImage.SetActive(true);
     }
 }
