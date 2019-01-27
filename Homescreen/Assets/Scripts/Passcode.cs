@@ -111,7 +111,7 @@ public class Passcode : MonoBehaviour {
 
 
                         /// right position
-                        hint += "2";
+                        hint += " XD ";
                     }
                     else
                     {
@@ -119,7 +119,7 @@ public class Passcode : MonoBehaviour {
 
                         /// right number wrong position
 
-                        hint += "1";
+                        hint += " ;) ";
                     }
                 }
                 else
@@ -128,11 +128,11 @@ public class Passcode : MonoBehaviour {
 
                     /// wrong number wrong position
                     /// 
-                    hint += "0";
+                    hint += " :( ";
                 }
             }
             //Instantiate Notification
-            Vector3 offset = new Vector3(50f, -50f * Attempts, 0f);
+            Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
             Vector3 nextPos = offset + content.transform.position;
             GameObject go = Instantiate(Notification, nextPos, Quaternion.identity, content.transform);
             go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
@@ -163,7 +163,7 @@ public class Passcode : MonoBehaviour {
         isUnlocked = true;
 
         GetComponent<ButtonClicks>().OnButtonClick_OpenHomeScreen();
-        Vector3 offset = new Vector3(50f, -50f * Attempts, 0f);
+        Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
         Vector3 nextPos = offset + content.transform.position;
         GameObject go = Instantiate(Notification, nextPos, Quaternion.identity, content.transform);
         go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3";
