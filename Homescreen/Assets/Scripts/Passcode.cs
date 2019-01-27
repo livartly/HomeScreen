@@ -19,6 +19,8 @@ public class Passcode : MonoBehaviour {
     public GameObject content;
 
     public GameObject Notification;
+    public GameObject NotificationFromMOM;
+    public GameObject NotificationFromInstagram;
 
     private int Attempts = 0;
 
@@ -134,8 +136,16 @@ public class Passcode : MonoBehaviour {
             //Instantiate Notification
             Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
             Vector3 nextPos = offset + content.transform.position;
-            GameObject go = Instantiate(Notification, nextPos, Quaternion.identity, content.transform);
-            go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
+            if (Random.Range(0, 9) < 7)
+            {
+                GameObject go = Instantiate(Notification, nextPos, Quaternion.identity, content.transform);
+                go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
+            }
+            else
+            {
+                GameObject go = Instantiate(NotificationFromInstagram, nextPos, Quaternion.identity, content.transform);
+                go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "You entered: " + passcode + "\nHere is your hint: " + hint;
+            }
             Debug.Log(validPasscode);
         }
 
@@ -165,7 +175,7 @@ public class Passcode : MonoBehaviour {
         GetComponent<ButtonClicks>().OnButtonClick_OpenHomeScreen();
         Vector3 offset = new Vector3(50f, -60f * Attempts, 0f);
         Vector3 nextPos = offset + content.transform.position;
-        GameObject go = Instantiate(Notification, nextPos, Quaternion.identity, content.transform);
+        GameObject go = Instantiate(NotificationFromMOM, nextPos, Quaternion.identity, content.transform);
         go.transform.GetComponentInChildren<TextMeshProUGUI>().text = "Mom: I'm proud of you <3";
         Debug.Log("You win");
     }
