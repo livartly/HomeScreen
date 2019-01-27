@@ -1,0 +1,17 @@
+InstaShot
+*Name* posted # new photos
+*Name* sent you # private messages
+Check out these # new photos
+
+PhotoChat
+*Name* sent you # shots
+*Name* sent you # chat messages
+
+
+EzText
+# new pictures from *Name*
+# texts from *Name*
+# new messages in multiple chats
+
+Generic
+*Name*: Did you see Arachni-Boy comes out in # days?
